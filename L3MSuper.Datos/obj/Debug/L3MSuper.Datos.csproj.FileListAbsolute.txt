@@ -1,0 +1,12 @@
+D:\Documentos\L3M\L3MSuper.Datos\bin\Debug\L3MSuper.Archivo.DB.mdf
+D:\Documentos\L3M\L3MSuper.Datos\bin\Debug\L3MSuper.Archivo.DB_log.ldf
+D:\Documentos\L3M\L3MSuper.Datos\bin\Debug\L3MSuper.Datos.dll.config
+D:\Documentos\L3M\L3MSuper.Datos\bin\Debug\L3MSuper.Datos.dll
+D:\Documentos\L3M\L3MSuper.Datos\bin\Debug\L3MSuper.Datos.pdb
+D:\Documentos\L3M\L3MSuper.Datos\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documentos\L3M\L3MSuper.Datos\bin\Debug\EntityFramework.dll
+D:\Documentos\L3M\L3MSuper.Datos\obj\Debug\L3MSuper.Datos.csprojAssemblyReference.cache
+D:\Documentos\L3M\L3MSuper.Datos\obj\Debug\L3MSuper.Datos.csproj.CoreCompileInputs.cache
+D:\Documentos\L3M\L3MSuper.Datos\obj\Debug\L3MSuper.Datos.csproj.CopyComplete
+D:\Documentos\L3M\L3MSuper.Datos\obj\Debug\L3MSuper.Datos.dll
+D:\Documentos\L3M\L3MSuper.Datos\obj\Debug\L3MSuper.Datos.pdb
