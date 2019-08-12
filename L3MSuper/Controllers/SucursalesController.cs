@@ -8,6 +8,9 @@ using System.Web.Http;
 
 namespace L3MSuper.Controllers
 {
+    /// <summary>
+    /// Controlador para las peticiones de la tabla de sucursales
+    /// </summary>
     public class SucursalesController : ApiController
     {
         AdministrationConnection BD = new AdministrationConnection();
@@ -18,6 +21,7 @@ namespace L3MSuper.Controllers
         [HttpGet]
         public IEnumerable<Sucursales> Get()
         {
+            // Obtenemos toda la lista de sucursales de la base de datos
             var suc = BD.Sucursales.ToList();
             
             return suc;
@@ -29,7 +33,8 @@ namespace L3MSuper.Controllers
         public string Post(Sucursales elemento)
         {
 
-            // Valida si existe un elemento dentro de la tabla
+            // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
+            // valor ya existe dentro de la tabla
             if (BD.Sucursales.Any(info => info.Nombre == elemento.Nombre))
             {
                 return "Ya existe esa sucursal en la base de datos";
@@ -44,6 +49,11 @@ namespace L3MSuper.Controllers
             
             
         }
+        /// <summary>
+        /// Elimina una sucursal
+        /// </summary>
+        /// <param name="elemento"> Recibe un json (Body) con los keys de sucursales para eliminar</param>
+        /// <returns>Un string de operacion</returns>
         [HttpDelete]
         public string Delete(Sucursales elemento)
         {
@@ -61,6 +71,12 @@ namespace L3MSuper.Controllers
                 return "Esa sucursal no existe";
             }
         }
+        /// <summary>
+        /// Metodo para modificar una tabla existente
+        /// </summary>
+        /// <param name="elemento">Recibe un json (Body) con los keys nuevos de sucursales para eliminar</param>
+        /// <param name="nombre"> La llave primaria que va a ser modificada </param>
+        /// <returns>Un string de operacion</returns>
         [HttpPut]
         public string Put(Sucursales elemento, string nombre)
         {
