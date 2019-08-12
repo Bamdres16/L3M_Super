@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -58,46 +58,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\L3MSuper.Context.cs">
+    <Compile Include="Modelo\Administration.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>L3MSuper.Context.tt</DependentUpon>
+      <DependentUpon>Administration.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\L3MSuper.cs">
+    <Compile Include="Modelo\Administration.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>L3MSuper.tt</DependentUpon>
+      <DependentUpon>Administration.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\L3MSuper.Designer.cs">
+    <Compile Include="Modelo\Administration.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>L3MSuper.edmx</DependentUpon>
+      <DependentUpon>Administration.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Roles.cs">
-      <DependentUpon>L3MSuper.tt</DependentUpon>
+      <DependentUpon>Administration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Sucursales.cs">
+      <DependentUpon>Administration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Trabajadores.cs">
+      <DependentUpon>Administration.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="L3MSuper.Archivo.DB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="L3MSuper.Archivo.DB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>L3MSuper.Archivo.DB.mdf</DependentUpon>
-    </Content>
-    <Content Include="Modelo\L3MSuper.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>L3MSuper.edmx</DependentUpon>
-      <LastGenOutput>L3MSuper.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Modelo\L3MSuper.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>L3MSuper.edmx</DependentUpon>
-      <LastGenOutput>L3MSuper.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
@@ -111,15 +97,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Modelo\L3MSuper.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>L3MSuper.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Modelo\L3MSuper.edmx.diagram">
-      <DependentUpon>L3MSuper.edmx</DependentUpon>
+    <EntityDeploy Include="Modelo\Administration.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Administration.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Modelo\Administration.edmx.diagram">
+      <DependentUpon>Administration.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +113,25 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="L3MSuper.Archivo.DB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="L3MSuper.Archivo.DB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>L3MSuper.Archivo.DB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Modelo\Administration.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Administration.edmx</DependentUpon>
+      <LastGenOutput>Administration.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\Administration.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Administration.edmx</DependentUpon>
+      <LastGenOutput>Administration.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

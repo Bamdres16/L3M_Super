@@ -10,15 +10,16 @@ namespace L3MSuper.Controllers
 {
     public class RolesController : ApiController
     {
-        Entities BD = new Entities();
+         AdministrationConnection BD = new AdministrationConnection();
         // IEnumerable generica para retornar cualquier tipo
         // Metodo de tipo get para obtener todos los roles existentes
-        //public IEnumerable<Roles> Get()
-        public int Get ()
+        [HttpGet]
+        public IEnumerable<Roles> Get()
         {
-            //var listado = BD.Roles.ToList();
-            return 5;
-
+            var listado = BD.Roles.ToList();
+            return listado;
+            
+  
         }
     }
 }

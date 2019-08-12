@@ -90,8 +90,6 @@ D:\Documentos\L3M\L3MSuper\obj\Debug\L3MSuper.csproj.CoreCompileInputs.cache
 D:\Documentos\L3M\L3MSuper\obj\Debug\L3MSuper.csproj.CopyComplete
 D:\Documentos\L3M\L3MSuper\obj\Debug\L3MSuper.dll
 D:\Documentos\L3M\L3MSuper\obj\Debug\L3MSuper.pdb
-D:\Documentos\L3M\L3MSuper\bin\L3MSuper.Archivo.DB.mdf
-D:\Documentos\L3M\L3MSuper\bin\L3MSuper.Archivo.DB_log.ldf
 D:\Documentos\L3M\L3MSuper\bin\EntityFramework.dll
 D:\Documentos\L3M\L3MSuper\bin\EntityFramework.SqlServer.dll
 D:\Documentos\L3M\L3MSuper\bin\L3MSuper.Datos.dll
@@ -99,3 +97,5 @@ D:\Documentos\L3M\L3MSuper\bin\L3MSuper.Datos.pdb
 D:\Documentos\L3M\L3MSuper\bin\L3MSuper.Datos.dll.config
 D:\Documentos\L3M\L3MSuper\bin\EntityFramework.xml
 D:\Documentos\L3M\L3MSuper\bin\EntityFramework.SqlServer.xml
+D:\Documentos\L3M\L3MSuper\bin\L3MSuper.Archivo.DB.mdf
+D:\Documentos\L3M\L3MSuper\bin\L3MSuper.Archivo.DB_log.ldf

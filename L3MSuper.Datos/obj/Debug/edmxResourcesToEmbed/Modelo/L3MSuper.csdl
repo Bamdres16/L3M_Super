@@ -9,5 +9,27 @@
   </EntityType>
   <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Sucursales" EntityType="L3MSuper.Archivo.DBModel.Sucursales" />
+    <EntitySet Name="Trabajadores" EntityType="L3MSuper.Archivo.DBModel.Trabajadores" />
   </EntityContainer>
+  <EntityType Name="Sucursales">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Administrador" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Trabajadores">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Nombre_Completo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha_de_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Fecha_de_Ingreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Salario_por_hora" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

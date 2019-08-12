@@ -7,7 +7,29 @@
     <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="Sucursales">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="Administrador" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trabajadores">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="Nombre Completo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha de Nacimiento" Type="date" Nullable="false" />
+    <Property Name="Fecha de Ingreso" Type="date" Nullable="false" />
+    <Property Name="Sucursal" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Salario por hora" Type="int" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="L3MSuperArchivoDBModelStoreContainer">
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
