@@ -22,9 +22,9 @@ namespace L3MSuper.Controllers
         public IEnumerable<Sucursales> Get()
         {
             // Obtenemos toda la lista de sucursales de la base de datos
-            var suc = BD.Sucursales.ToList();
+            var listado = BD.Sucursales.ToList();
             
-            return suc;
+            return listado;
         }
         /// <summary>
         /// Metodo POST que añade una nueva sucursal
@@ -85,6 +85,7 @@ namespace L3MSuper.Controllers
 
                 var wc = BD.Sucursales.First(p => p.Nombre == nombre);
                 BD.Sucursales.Remove(wc);
+                BD.SaveChanges();
                 if (BD.Sucursales.Any(info => info.Nombre == elemento.Nombre))
                 {
                     return "Ya existe esa sucursal en la base de datos";
@@ -92,7 +93,7 @@ namespace L3MSuper.Controllers
                 else
                 {
 
-                    BD.SaveChanges();
+                    
                     BD.Sucursales.Add(elemento);
                     BD.SaveChanges();
                     return "Sucursal modificada";

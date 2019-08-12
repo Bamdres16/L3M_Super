@@ -18,8 +18,69 @@ namespace L3MSuper.Controllers
         {
             var listado = BD.Roles.ToList();
             return listado;
-            
-  
+        }
+        [HttpPost]
+        public string Post(Roles elemento)
+        {
+
+            // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
+            // valor ya existe dentro de la tabla
+            if (BD.Sucursales.Any(info => info.Nombre == elemento.Nombre))
+            {
+                return "Ya existe ese rol en la base de datos";
+            }
+            else
+            {
+
+                BD.Roles.Add(elemento);
+                BD.SaveChanges();
+                return "Rol añadido";
+            }
+        }
+        [HttpPut]
+        public string Put(Roles elemento, string nombre)
+        {
+            if (BD.Roles.Any(info => info.Nombre == nombre))
+            {
+
+                var wc = BD.Roles.First(p => p.Nombre == nombre);
+                BD.Roles.Remove(wc);
+                BD.SaveChanges();
+                if (BD.Roles.Any(info => info.Nombre == elemento.Nombre))
+                {
+                    return "Ya existe rol en la base de datos";
+                }
+                else
+                {
+
+                    
+                    BD.Roles.Add(elemento);
+                    BD.SaveChanges();
+                    return "Rol de " + elemento.Nombre + " modificado";
+                }
+
+            }
+            else
+            {
+                return "Ese rol no existe";
+            }
+        }
+        [HttpDelete]
+        public string Delete(Roles elemento)
+        {
+
+            if (BD.Roles.Any(info => info.Nombre == elemento.Nombre))
+            {
+
+                var wc = BD.Roles.First(p => p.Nombre == elemento.Nombre);
+                BD.Roles.Remove(wc);
+                BD.SaveChanges();
+                return "Rol eliminado";
+            }
+            else
+            {
+                return "Ese rol no existe";
+            }
         }
     }
 }

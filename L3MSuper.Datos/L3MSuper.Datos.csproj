@@ -73,6 +73,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Administration.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Compras.cs">
+      <DependentUpon>Administration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Control.cs">
+      <DependentUpon>Administration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Productos.cs">
+      <DependentUpon>Administration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Proveedores.cs">
+      <DependentUpon>Administration.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Roles.cs">
       <DependentUpon>Administration.tt</DependentUpon>
     </Compile>
