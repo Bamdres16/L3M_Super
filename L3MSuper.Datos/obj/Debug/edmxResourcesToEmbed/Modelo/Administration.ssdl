@@ -1,5 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="L3MSuper.Archivo.DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Compras">
+    <Key>
+      <PropertyRef Name="Id Compra" />
+    </Key>
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha Real" Type="datetime" Nullable="false" />
+    <Property Name="Fecha Registro" Type="date" Nullable="false" />
+    <Property Name="Id Compra" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Proveedor" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Foto" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Sucursal" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Control">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="Horas" Type="int" Nullable="false" />
+    <Property Name="Sucursal" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Semana" Type="int" Nullable="false" />
+    <Property Name="Horas Extra" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="Codigo de barras" />
+    </Key>
+    <Property Name="Codigo de barras" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Proveedor" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Precio de Compra" Type="int" Nullable="false" />
+    <Property Name="Impuesto" Type="bit" Nullable="false" />
+    <Property Name="Descuento" Type="bit" Nullable="false" />
+    <Property Name="Sucursal" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proveedores">
+    <Key>
+      <PropertyRef Name="Nombre Completo" />
+    </Key>
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="Tipo de Cedula" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombre Completo" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="Nombre" />
@@ -28,6 +71,10 @@
     <Property Name="Salario por hora" Type="int" Nullable="false" />
   </EntityType>
   <EntityContainer Name="L3MSuperArchivoDBModelStoreContainer">
+    <EntitySet Name="Compras" EntityType="Self.Compras" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Control" EntityType="Self.Control" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" Schema="dbo" store:Type="Tables" />

@@ -31,5 +31,52 @@
     <EntitySet Name="Roles" EntityType="Self.Roles" />
     <EntitySet Name="Sucursales" EntityType="Self.Sucursales" />
     <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" />
+    <EntitySet Name="Productos" EntityType="L3MSuper.Archivo.DBModel.Productos" />
+    <EntitySet Name="Proveedores" EntityType="L3MSuper.Archivo.DBModel.Proveedores" />
+    <EntitySet Name="Compras" EntityType="L3MSuper.Archivo.DBModel.Compras" />
+    <EntitySet Name="Control" EntityType="L3MSuper.Archivo.DBModel.Control" />
   </EntityContainer>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="Codigo_de_barras" />
+    </Key>
+    <Property Name="Codigo_de_barras" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Proveedor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Precio_de_Compra" Type="Int32" Nullable="false" />
+    <Property Name="Impuesto" Type="Boolean" Nullable="false" />
+    <Property Name="Descuento" Type="Boolean" Nullable="false" />
+    <Property Name="Sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Proveedores">
+    <Key>
+      <PropertyRef Name="Nombre_Completo" />
+    </Key>
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Tipo_de_Cedula" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre_Completo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Compras">
+    <Key>
+      <PropertyRef Name="Id_Compra" />
+    </Key>
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha_Real" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_Registro" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Id_Compra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Proveedor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Foto" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="Sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Control">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Horas" Type="Int32" Nullable="false" />
+    <Property Name="Sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Semana" Type="Int32" Nullable="false" />
+    <Property Name="Horas_Extra" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

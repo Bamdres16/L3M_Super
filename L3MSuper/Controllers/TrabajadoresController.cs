@@ -1,9 +1,15 @@
-﻿using L3MSuper.Datos.Modelo;
+﻿
+using L3MSuper.Class;
+using L3MSuper.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Web.Http;
 
 namespace L3MSuper.Controllers
@@ -13,10 +19,12 @@ namespace L3MSuper.Controllers
         AdministrationConnection BD = new AdministrationConnection();
         [HttpGet]
         public IEnumerable<Trabajadores> Get()
+
         {
-            // Obtenemos toda la lista de sucursales de la base de datos
-            var listado = BD.Trabajadores.ToList();
-            return listado;
+
+
+            return BD.Trabajadores.ToList();
+        
         }
         [HttpPost]
         public string Post(Trabajadores elemento)

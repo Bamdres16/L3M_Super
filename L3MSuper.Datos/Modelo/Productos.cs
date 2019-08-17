@@ -22,8 +22,5 @@ namespace L3MSuper.Datos.Modelo
         public bool Descuento { get; set; }
         public string Sucursal { get; set; }
         public string Descripcion { get; set; }
-    
-        public virtual Proveedores Proveedores { get; set; }
-        public virtual Sucursales Sucursales { get; set; }
     }
 }

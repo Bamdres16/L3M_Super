@@ -19,8 +19,5 @@ namespace L3MSuper.Datos.Modelo
         public string Sucursal { get; set; }
         public int Semana { get; set; }
         public int Horas_Extra { get; set; }
-    
-        public virtual Trabajadores Trabajadores { get; set; }
-        public virtual Sucursales Sucursales { get; set; }
     }
 }

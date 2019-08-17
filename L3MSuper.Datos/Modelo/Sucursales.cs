@@ -14,24 +14,9 @@ namespace L3MSuper.Datos.Modelo
     
     public partial class Sucursales
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sucursales()
-        {
-            this.Productos = new HashSet<Productos>();
-            this.Compras = new HashSet<Compras>();
-            this.Control = new HashSet<Control>();
-        }
-    
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public int Telefono { get; set; }
         public string Administrador { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Productos> Productos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compras> Compras { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Control> Control { get; set; }
     }
 }

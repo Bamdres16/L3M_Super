@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelDBStoreContainer" CdmEntityContainer="DataBD">
+    <EntitySetMapping Name="Compras">
+      <EntityTypeMapping TypeName="ModelDB.Compras">
+        <MappingFragment StoreEntitySet="Compras">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha_Real" ColumnName="Fecha Real" />
+          <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha Registro" />
+          <ScalarProperty Name="Id_Compra" ColumnName="Id Compra" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Control">
+      <EntityTypeMapping TypeName="ModelDB.Control">
+        <MappingFragment StoreEntitySet="Control">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Horas" ColumnName="Horas" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Semana" ColumnName="Semana" />
+          <ScalarProperty Name="Horas_Extra" ColumnName="Horas Extra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="ModelDB.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="Codigo_de_barras" ColumnName="Codigo de barras" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Precio_de_Compra" ColumnName="Precio de Compra" />
+          <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedores">
+      <EntityTypeMapping TypeName="ModelDB.Proveedores">
+        <MappingFragment StoreEntitySet="Proveedores">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Tipo_de_Cedula" ColumnName="Tipo de Cedula" />
+          <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre Completo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ModelDB.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sucursales">
+      <EntityTypeMapping TypeName="ModelDB.Sucursales">
+        <MappingFragment StoreEntitySet="Sucursales">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Administrador" ColumnName="Administrador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trabajadores">
+      <EntityTypeMapping TypeName="ModelDB.Trabajadores">
+        <MappingFragment StoreEntitySet="Trabajadores">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre Completo" />
+          <ScalarProperty Name="Fecha_de_Nacimiento" ColumnName="Fecha de Nacimiento" />
+          <ScalarProperty Name="Fecha_de_Ingreso" ColumnName="Fecha de Ingreso" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Salario_por_hora" ColumnName="Salario por hora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

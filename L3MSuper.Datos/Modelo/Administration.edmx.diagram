@@ -10,14 +10,8 @@
         <EntityTypeShape EntityType="L3MSuper.Archivo.DBModel.Trabajadores" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="L3MSuper.Archivo.DBModel.Productos" Width="1.5" PointX="3.375" PointY="3.75" />
         <EntityTypeShape EntityType="L3MSuper.Archivo.DBModel.Proveedores" Width="1.5" PointX="5.375" PointY="0.75" />
-        <AssociationConnector Association="L3MSuper.Archivo.DBModel.FK__Productos__Prove__6E01572D" />
-        <AssociationConnector Association="L3MSuper.Archivo.DBModel.FK__Productos__Sucur__01142BA1" />
         <EntityTypeShape EntityType="L3MSuper.Archivo.DBModel.Compras" Width="1.5" PointX="7.625" PointY="0.75" />
         <EntityTypeShape EntityType="L3MSuper.Archivo.DBModel.Control" Width="1.5" PointX="6" PointY="4.5" />
-        <AssociationConnector Association="L3MSuper.Archivo.DBModel.fk1" />
-        <AssociationConnector Association="L3MSuper.Archivo.DBModel.fk2" />
-        <AssociationConnector Association="L3MSuper.Archivo.DBModel.ct1" />
-        <AssociationConnector Association="L3MSuper.Archivo.DBModel.ct2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

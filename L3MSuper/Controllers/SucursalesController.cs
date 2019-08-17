@@ -1,4 +1,7 @@
-﻿using L3MSuper.Datos.Modelo;
+﻿
+using L3MSuper.Class;
+using L3MSuper.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +23,13 @@ namespace L3MSuper.Controllers
         /// <returns>Lista en tipo JSON de las sucursales</returns>
         [HttpGet]
         public IEnumerable<Sucursales> Get()
+
         {
-            // Obtenemos toda la lista de sucursales de la base de datos
-            var listado = BD.Sucursales.ToList();
-            
-            return listado;
+
+
+            return BD.Sucursales.ToList();
+
+
         }
         /// <summary>
         /// Metodo POST que añade una nueva sucursal

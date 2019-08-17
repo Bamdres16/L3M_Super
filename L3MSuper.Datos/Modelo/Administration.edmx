@@ -75,78 +75,6 @@
           <Property Name="Sucursal" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Salario por hora" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="ct1">
-          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="1" />
-          <End Role="Control" Type="Self.Control" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Trabajadores">
-              <PropertyRef Name="Cedula" />
-            </Principal>
-            <Dependent Role="Control">
-              <PropertyRef Name="Cedula" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ct2">
-          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
-          <End Role="Control" Type="Self.Control" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sucursales">
-              <PropertyRef Name="Nombre" />
-            </Principal>
-            <Dependent Role="Control">
-              <PropertyRef Name="Sucursal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk1">
-          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
-          <End Role="Compras" Type="Self.Compras" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sucursales">
-              <PropertyRef Name="Nombre" />
-            </Principal>
-            <Dependent Role="Compras">
-              <PropertyRef Name="Sucursal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk2">
-          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
-          <End Role="Compras" Type="Self.Compras" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Proveedores">
-              <PropertyRef Name="Nombre Completo" />
-            </Principal>
-            <Dependent Role="Compras">
-              <PropertyRef Name="Proveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk3">
-          <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
-          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sucursales">
-              <PropertyRef Name="Nombre" />
-            </Principal>
-            <Dependent Role="Productos">
-              <PropertyRef Name="Sucursal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk4">
-          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
-          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Proveedores">
-              <PropertyRef Name="Nombre Completo" />
-            </Principal>
-            <Dependent Role="Productos">
-              <PropertyRef Name="Proveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="L3MSuperArchivoDBModelStoreContainer">
           <EntitySet Name="Compras" EntityType="Self.Compras" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Control" EntityType="Self.Control" Schema="dbo" store:Type="Tables" />
@@ -155,30 +83,6 @@
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="ct1" Association="Self.ct1">
-            <End Role="Trabajadores" EntitySet="Trabajadores" />
-            <End Role="Control" EntitySet="Control" />
-          </AssociationSet>
-          <AssociationSet Name="ct2" Association="Self.ct2">
-            <End Role="Sucursales" EntitySet="Sucursales" />
-            <End Role="Control" EntitySet="Control" />
-          </AssociationSet>
-          <AssociationSet Name="fk1" Association="Self.fk1">
-            <End Role="Sucursales" EntitySet="Sucursales" />
-            <End Role="Compras" EntitySet="Compras" />
-          </AssociationSet>
-          <AssociationSet Name="fk2" Association="Self.fk2">
-            <End Role="Proveedores" EntitySet="Proveedores" />
-            <End Role="Compras" EntitySet="Compras" />
-          </AssociationSet>
-          <AssociationSet Name="fk3" Association="Self.fk3">
-            <End Role="Sucursales" EntitySet="Sucursales" />
-            <End Role="Productos" EntitySet="Productos" />
-          </AssociationSet>
-          <AssociationSet Name="fk4" Association="Self.fk4">
-            <End Role="Proveedores" EntitySet="Proveedores" />
-            <End Role="Productos" EntitySet="Productos" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -199,9 +103,6 @@
           <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Telefono" Type="Int32" Nullable="false" />
           <Property Name="Administrador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Productos" Relationship="L3MSuper.Archivo.DBModel.FK__Productos__Sucur__01142BA1" FromRole="Sucursales" ToRole="Productos" />
-          <NavigationProperty Name="Compras" Relationship="L3MSuper.Archivo.DBModel.fk1" FromRole="Sucursales" ToRole="Compras" />
-          <NavigationProperty Name="Control" Relationship="L3MSuper.Archivo.DBModel.ct2" FromRole="Sucursales" ToRole="Control" />
         </EntityType>
         <EntityType Name="Trabajadores">
           <Key>
@@ -213,7 +114,6 @@
           <Property Name="Fecha_de_Ingreso" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Sucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Salario_por_hora" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Control" Relationship="L3MSuper.Archivo.DBModel.ct1" FromRole="Trabajadores" ToRole="Control" />
         </EntityType>
         <EntityContainer Name="AdministrationConnection" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Roles" EntityType="Self.Roles" />
@@ -221,32 +121,8 @@
           <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" />
           <EntitySet Name="Productos" EntityType="L3MSuper.Archivo.DBModel.Productos" />
           <EntitySet Name="Proveedores" EntityType="L3MSuper.Archivo.DBModel.Proveedores" />
-          <AssociationSet Name="FK__Productos__Prove__6E01572D" Association="L3MSuper.Archivo.DBModel.FK__Productos__Prove__6E01572D">
-            <End Role="Proveedores" EntitySet="Proveedores" />
-            <End Role="Productos" EntitySet="Productos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Productos__Sucur__01142BA1" Association="L3MSuper.Archivo.DBModel.FK__Productos__Sucur__01142BA1">
-            <End Role="Sucursales" EntitySet="Sucursales" />
-            <End Role="Productos" EntitySet="Productos" />
-          </AssociationSet>
           <EntitySet Name="Compras" EntityType="L3MSuper.Archivo.DBModel.Compras" />
           <EntitySet Name="Control" EntityType="L3MSuper.Archivo.DBModel.Control" />
-          <AssociationSet Name="fk1" Association="L3MSuper.Archivo.DBModel.fk1">
-            <End Role="Sucursales" EntitySet="Sucursales" />
-            <End Role="Compras" EntitySet="Compras" />
-          </AssociationSet>
-          <AssociationSet Name="fk2" Association="L3MSuper.Archivo.DBModel.fk2">
-            <End Role="Proveedores" EntitySet="Proveedores" />
-            <End Role="Compras" EntitySet="Compras" />
-          </AssociationSet>
-          <AssociationSet Name="ct1" Association="L3MSuper.Archivo.DBModel.ct1">
-            <End Role="Trabajadores" EntitySet="Trabajadores" />
-            <End Role="Control" EntitySet="Control" />
-          </AssociationSet>
-          <AssociationSet Name="ct2" Association="L3MSuper.Archivo.DBModel.ct2">
-            <End Role="Sucursales" EntitySet="Sucursales" />
-            <End Role="Control" EntitySet="Control" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Productos">
           <Key>
@@ -260,8 +136,6 @@
           <Property Name="Descuento" Type="Boolean" Nullable="false" />
           <Property Name="Sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Proveedores" Relationship="L3MSuper.Archivo.DBModel.FK__Productos__Prove__6E01572D" FromRole="Productos" ToRole="Proveedores" />
-          <NavigationProperty Name="Sucursales" Relationship="L3MSuper.Archivo.DBModel.FK__Productos__Sucur__01142BA1" FromRole="Productos" ToRole="Sucursales" />
         </EntityType>
         <EntityType Name="Proveedores">
           <Key>
@@ -270,33 +144,7 @@
           <Property Name="Cedula" Type="Int32" Nullable="false" />
           <Property Name="Tipo_de_Cedula" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Nombre_Completo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Productos" Relationship="L3MSuper.Archivo.DBModel.FK__Productos__Prove__6E01572D" FromRole="Proveedores" ToRole="Productos" />
-          <NavigationProperty Name="Compras" Relationship="L3MSuper.Archivo.DBModel.fk2" FromRole="Proveedores" ToRole="Compras" />
         </EntityType>
-        <Association Name="FK__Productos__Prove__6E01572D">
-          <End Type="L3MSuper.Archivo.DBModel.Proveedores" Role="Proveedores" Multiplicity="1" />
-          <End Type="L3MSuper.Archivo.DBModel.Productos" Role="Productos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Proveedores">
-              <PropertyRef Name="Nombre_Completo" />
-            </Principal>
-            <Dependent Role="Productos">
-              <PropertyRef Name="Proveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Productos__Sucur__01142BA1">
-          <End Type="L3MSuper.Archivo.DBModel.Sucursales" Role="Sucursales" Multiplicity="1" />
-          <End Type="L3MSuper.Archivo.DBModel.Productos" Role="Productos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sucursales">
-              <PropertyRef Name="Nombre" />
-            </Principal>
-            <Dependent Role="Productos">
-              <PropertyRef Name="Sucursal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Compras">
           <Key>
             <PropertyRef Name="Id_Compra" />
@@ -308,8 +156,6 @@
           <Property Name="Proveedor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Foto" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="Sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Sucursales" Relationship="L3MSuper.Archivo.DBModel.fk1" FromRole="Compras" ToRole="Sucursales" />
-          <NavigationProperty Name="Proveedores" Relationship="L3MSuper.Archivo.DBModel.fk2" FromRole="Compras" ToRole="Proveedores" />
         </EntityType>
         <EntityType Name="Control">
           <Key>
@@ -320,57 +166,7 @@
           <Property Name="Sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Semana" Type="Int32" Nullable="false" />
           <Property Name="Horas_Extra" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Trabajadores" Relationship="L3MSuper.Archivo.DBModel.ct1" FromRole="Control" ToRole="Trabajadores" />
-          <NavigationProperty Name="Sucursales" Relationship="L3MSuper.Archivo.DBModel.ct2" FromRole="Control" ToRole="Sucursales" />
         </EntityType>
-        <Association Name="fk1">
-          <End Type="L3MSuper.Archivo.DBModel.Sucursales" Role="Sucursales" Multiplicity="1" />
-          <End Type="L3MSuper.Archivo.DBModel.Compras" Role="Compras" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sucursales">
-              <PropertyRef Name="Nombre" />
-            </Principal>
-            <Dependent Role="Compras">
-              <PropertyRef Name="Sucursal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk2">
-          <End Type="L3MSuper.Archivo.DBModel.Proveedores" Role="Proveedores" Multiplicity="1" />
-          <End Type="L3MSuper.Archivo.DBModel.Compras" Role="Compras" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Proveedores">
-              <PropertyRef Name="Nombre_Completo" />
-            </Principal>
-            <Dependent Role="Compras">
-              <PropertyRef Name="Proveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ct1">
-          <End Type="L3MSuper.Archivo.DBModel.Trabajadores" Role="Trabajadores" Multiplicity="1" />
-          <End Type="L3MSuper.Archivo.DBModel.Control" Role="Control" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Trabajadores">
-              <PropertyRef Name="Cedula" />
-            </Principal>
-            <Dependent Role="Control">
-              <PropertyRef Name="Cedula" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ct2">
-          <End Type="L3MSuper.Archivo.DBModel.Sucursales" Role="Sucursales" Multiplicity="1" />
-          <End Type="L3MSuper.Archivo.DBModel.Control" Role="Control" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sucursales">
-              <PropertyRef Name="Nombre" />
-            </Principal>
-            <Dependent Role="Control">
-              <PropertyRef Name="Sucursal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

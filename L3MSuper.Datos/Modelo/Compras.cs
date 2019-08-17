@@ -21,8 +21,5 @@ namespace L3MSuper.Datos.Modelo
         public string Proveedor { get; set; }
         public byte[] Foto { get; set; }
         public string Sucursal { get; set; }
-    
-        public virtual Sucursales Sucursales { get; set; }
-        public virtual Proveedores Proveedores { get; set; }
     }
 }

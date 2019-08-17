@@ -20,7 +20,5 @@ namespace L3MSuper.Datos.Modelo
         public System.DateTime Fecha_de_Ingreso { get; set; }
         public string Sucursal { get; set; }
         public int Salario_por_hora { get; set; }
-    
-        public virtual Control Control { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace L3MSuper.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "L3M Super";
 
             return View();
         }
