@@ -27,9 +27,12 @@ namespace L3MSuper.Controllers
         }
 
         [HttpPost]
-        public string Post(Proveedores elemento)
+        public string Post(int cedula, string tipo, string nombre)
         {
-
+            Proveedores elemento = new Proveedores();
+            elemento.Cedula = cedula;
+            elemento.Tipo_de_Cedula = tipo;
+            elemento.Nombre_Completo = nombre;
             // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
             // valor ya existe dentro de la tabla
             if (BD.Proveedores.Any(info => info.Nombre_Completo == elemento.Nombre_Completo))
@@ -45,13 +48,13 @@ namespace L3MSuper.Controllers
             }
         }
         [HttpDelete]
-        public string Delete(Proveedores elemento)
+        public string Delete(string nombre)
         {
-
-            if (BD.Proveedores.Any(info => info.Nombre_Completo == elemento.Nombre_Completo))
+            
+            if (BD.Proveedores.Any(info => info.Nombre_Completo == nombre))
             {
 
-                var wc = BD.Proveedores.First(p => p.Nombre_Completo == elemento.Nombre_Completo);
+                var wc = BD.Proveedores.First(p => p.Nombre_Completo == nombre);
                 BD.Proveedores.Remove(wc);
                 BD.SaveChanges();
                 return "Proveedor eliminada";
@@ -63,12 +66,16 @@ namespace L3MSuper.Controllers
         }
 
         [HttpPut]
-        public string Put(Proveedores elemento, string nombre)
+        public string Put(int cedula, string tipo, string nombre, string actual)
         {
-            if (BD.Proveedores.Any(info => info.Nombre_Completo == nombre))
+            Proveedores elemento = new Proveedores();
+            elemento.Cedula = cedula;
+            elemento.Tipo_de_Cedula = tipo;
+            elemento.Nombre_Completo = nombre;
+            if (BD.Proveedores.Any(info => info.Nombre_Completo == actual))
             {
 
-                var wc = BD.Proveedores.First(p => p.Nombre_Completo == nombre);
+                var wc = BD.Proveedores.First(p => p.Nombre_Completo == actual);
                 BD.Proveedores.Remove(wc);
                 BD.SaveChanges();
                 if (BD.Proveedores.Any(info => info.Nombre_Completo == elemento.Nombre_Completo))

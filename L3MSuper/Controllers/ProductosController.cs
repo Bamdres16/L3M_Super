@@ -28,9 +28,17 @@ namespace L3MSuper.Controllers
 
 
         [HttpPost]
-        public string Post(Productos elemento)
+        public string Post(int codigo, string nombre, string proveedor, int precio, bool impuesto,bool descuento,string sucursal,string descripcion)
         {
-
+            Productos elemento = new Productos();
+            elemento.Codigo_de_barras = codigo;
+            elemento.Nombre = nombre;
+            elemento.Proveedor = proveedor;
+            elemento.Precio_de_Compra = precio;
+            elemento.Impuesto = impuesto;
+            elemento.Descripcion = descripcion;
+            elemento.Descuento = descuento;
+            elemento.Sucursal = sucursal;
             // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
             // valor ya existe dentro de la tabla
             if (BD.Productos.Any(info => info.Codigo_de_barras == elemento.Codigo_de_barras))
@@ -46,13 +54,13 @@ namespace L3MSuper.Controllers
             }
         }
         [HttpDelete]
-        public string Delete(Productos elemento)
+        public string Delete(int codigo)
         {
-
-            if (BD.Productos.Any(info => info.Codigo_de_barras == elemento.Codigo_de_barras))
+            
+            if (BD.Productos.Any(info => info.Codigo_de_barras == codigo))
             {
 
-                var wc = BD.Productos.First(p => p.Codigo_de_barras == elemento.Codigo_de_barras);
+                var wc = BD.Productos.First(p => p.Codigo_de_barras == codigo);
                 BD.Productos.Remove(wc);
                 BD.SaveChanges();
                 return "Producto eliminado";
@@ -64,12 +72,21 @@ namespace L3MSuper.Controllers
         }
 
         [HttpPut]
-        public string Put(Productos elemento, int codigo_barras)
+        public string Put(int codigo, string nombre, string proveedor, int precio, bool impuesto, bool descuento, string sucursal, string descripcion, int actual)
         {
-            if (BD.Productos.Any(info => info.Codigo_de_barras == codigo_barras))
+            Productos elemento = new Productos();
+            elemento.Codigo_de_barras = codigo;
+            elemento.Nombre = nombre;
+            elemento.Proveedor = proveedor;
+            elemento.Precio_de_Compra = precio;
+            elemento.Impuesto = impuesto;
+            elemento.Descripcion = descripcion;
+            elemento.Descuento = descuento;
+            elemento.Sucursal = sucursal;
+            if (BD.Productos.Any(info => info.Codigo_de_barras == actual))
             {
 
-                var wc = BD.Productos.First(p => p.Codigo_de_barras == codigo_barras);
+                var wc = BD.Productos.First(p => p.Codigo_de_barras == actual);
                 BD.Productos.Remove(wc);
                 BD.SaveChanges();
                 if (BD.Productos.Any(info => info.Codigo_de_barras == elemento.Codigo_de_barras))

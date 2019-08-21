@@ -78,5 +78,17 @@
     <EntitySet Name="Roles" EntityType="Self.Roles" />
     <EntitySet Name="Sucursales" EntityType="Self.Sucursales" />
     <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" />
+    <EntitySet Name="Venta" EntityType="Modelo.Venta" />
   </EntityContainer>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="Id_Venta" />
+    </Key>
+    <Property Name="Cajero" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descuento" Type="Int32" />
+    <Property Name="Impuesto" Type="Int32" />
+    <Property Name="Productos" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Int32" Nullable="false" />
+    <Property Name="Id_Venta" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

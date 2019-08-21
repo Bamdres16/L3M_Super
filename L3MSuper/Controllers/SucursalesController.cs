@@ -35,18 +35,22 @@ namespace L3MSuper.Controllers
         /// Metodo POST que añade una nueva sucursal
         /// </summary>
         [HttpPost]
-        public string Post(Sucursales elemento)
+        public string Post(string Nombre, string Direccion, int Telefono, string Administrador)
         {
 
             // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
             // valor ya existe dentro de la tabla
-            if (BD.Sucursales.Any(info => info.Nombre == elemento.Nombre))
+            if (BD.Sucursales.Any(info => info.Nombre == Nombre))
             {
                 return "Ya existe esa sucursal en la base de datos";
             }
             else
             {
-               
+                Sucursales elemento = new Sucursales();
+                elemento.Nombre = Nombre;
+                elemento.Direccion = Direccion;
+                elemento.Telefono = Telefono;
+                elemento.Administrador = Administrador;
                 BD.Sucursales.Add(elemento);
                 BD.SaveChanges();
                 return "Sucursal añadida";
@@ -60,13 +64,13 @@ namespace L3MSuper.Controllers
         /// <param name="elemento"> Recibe un json (Body) con los keys de sucursales para eliminar</param>
         /// <returns>Un string de operacion</returns>
         [HttpDelete]
-        public string Delete(Sucursales elemento)
+        public string Delete(string Nombre)
         {
            
-            if (BD.Sucursales.Any(info => info.Nombre == elemento.Nombre))
+            if (BD.Sucursales.Any(info => info.Nombre == Nombre))
             {
                 
-                var wc= BD.Sucursales.First(p => p.Nombre == elemento.Nombre);
+                var wc= BD.Sucursales.First(p => p.Nombre == Nombre);
                 BD.Sucursales.Remove(wc);
                 BD.SaveChanges();
                 return "Sucursal eliminada";
@@ -83,12 +87,16 @@ namespace L3MSuper.Controllers
         /// <param name="nombre"> La llave primaria que va a ser modificada </param>
         /// <returns>Un string de operacion</returns>
         [HttpPut]
-        public string Put(Sucursales elemento, string nombre)
+        public string Put(string actual, string Nombre, string Direccion, int Telefono, string Administrador)
         {
-            if (BD.Sucursales.Any(info => info.Nombre == nombre))
+            if (BD.Sucursales.Any(info => info.Nombre == actual))
             {
-
-                var wc = BD.Sucursales.First(p => p.Nombre == nombre);
+                Sucursales elemento = new Sucursales();
+                elemento.Nombre = Nombre;
+                elemento.Direccion = Direccion;
+                elemento.Telefono = Telefono;
+                elemento.Administrador = Administrador;
+                var wc = BD.Sucursales.First(p => p.Nombre == actual);
                 BD.Sucursales.Remove(wc);
                 BD.SaveChanges();
                 if (BD.Sucursales.Any(info => info.Nombre == elemento.Nombre))

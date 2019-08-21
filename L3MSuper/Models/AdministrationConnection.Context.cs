@@ -32,5 +32,6 @@ namespace L3MSuper.Models
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Sucursales> Sucursales { get; set; }
         public virtual DbSet<Trabajadores> Trabajadores { get; set; }
+        public virtual DbSet<Venta> Venta { get; set; }
     }
 }

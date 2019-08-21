@@ -27,9 +27,11 @@ namespace L3MSuper.Controllers
 
         }
         [HttpPost]
-        public string Post(Roles elemento)
+        public string Post(string Nombre, string Descripcion)
         {
-
+            Roles elemento = new Roles();
+            elemento.Descripcion = Descripcion;
+            elemento.Nombre = Nombre;
             // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
             // valor ya existe dentro de la tabla
             if (BD.Sucursales.Any(info => info.Nombre == elemento.Nombre))
@@ -45,11 +47,13 @@ namespace L3MSuper.Controllers
             }
         }
         [HttpPut]
-        public string Put(Roles elemento, string nombre)
+        public string Put(string Nombre, string Descripcion, string nombre)
         {
             if (BD.Roles.Any(info => info.Nombre == nombre))
             {
-
+                Roles elemento = new Roles();
+                elemento.Descripcion = Descripcion;
+                elemento.Nombre = Nombre;
                 var wc = BD.Roles.First(p => p.Nombre == nombre);
                 BD.Roles.Remove(wc);
                 BD.SaveChanges();
@@ -73,13 +77,13 @@ namespace L3MSuper.Controllers
             }
         }
         [HttpDelete]
-        public string Delete(Roles elemento)
+        public string Delete(string Nombre)
         {
 
-            if (BD.Roles.Any(info => info.Nombre == elemento.Nombre))
+            if (BD.Roles.Any(info => info.Nombre == Nombre))
             {
 
-                var wc = BD.Roles.First(p => p.Nombre == elemento.Nombre);
+                var wc = BD.Roles.First(p => p.Nombre == Nombre);
                 BD.Roles.Remove(wc);
                 BD.SaveChanges();
                 return "Rol eliminado";

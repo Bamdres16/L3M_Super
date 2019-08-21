@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Compras">
           <Key>
             <PropertyRef Name="Id Compra" />
@@ -75,6 +75,17 @@
           <Property Name="Sucursal" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Salario por hora" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="Id_Venta" />
+          </Key>
+          <Property Name="Cajero" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descuento" Type="int" />
+          <Property Name="Impuesto" Type="int" />
+          <Property Name="Productos" Type="varchar(max)" Nullable="false" />
+          <Property Name="Total" Type="int" Nullable="false" />
+          <Property Name="Id_Venta" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="ModeloStoreContainer">
           <EntitySet Name="Compras" EntityType="Self.Compras" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Control" EntityType="Self.Control" Schema="dbo" store:Type="Tables" />
@@ -83,9 +94,9 @@
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -167,7 +178,19 @@
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Sucursales" EntityType="Self.Sucursales" />
           <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" />
+          <EntitySet Name="Venta" EntityType="Modelo.Venta" />
         </EntityContainer>
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="Id_Venta" />
+          </Key>
+          <Property Name="Cajero" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descuento" Type="Int32" />
+          <Property Name="Impuesto" Type="Int32" />
+          <Property Name="Productos" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Total" Type="Int32" Nullable="false" />
+          <Property Name="Id_Venta" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -248,6 +271,18 @@
                 <ScalarProperty Name="Fecha_de_Ingreso" ColumnName="Fecha de Ingreso" />
                 <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
                 <ScalarProperty Name="Salario_por_hora" ColumnName="Salario por hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Venta">
+            <EntityTypeMapping TypeName="Modelo.Venta">
+              <MappingFragment StoreEntitySet="Venta">
+                <ScalarProperty Name="Id_Venta" ColumnName="Id_Venta" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Productos" ColumnName="Productos" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Cajero" ColumnName="Cajero" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -167,6 +167,7 @@
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SucursalesController.cs" />
     <Compile Include="Controllers\TrabajadoresController.cs" />
+    <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,6 +205,9 @@
       <DependentUpon>AdministrationConnection.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Trabajadores.cs">
+      <DependentUpon>AdministrationConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Venta.cs">
       <DependentUpon>AdministrationConnection.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -26,8 +26,14 @@ namespace L3MSuper.Controllers
         }
 
         [HttpPost]
-        public string Post(Control elemento)
+        public string Post(int cedula, int horas, string sucursal,int semana,int horas_extra)
         {
+            Control elemento = new Control();
+            elemento.Cedula = cedula;
+            elemento.Horas = horas;
+            elemento.Sucursal = sucursal;
+            elemento.Semana = semana;
+            elemento.Horas_Extra = horas_extra;
 
             // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
             // valor ya existe dentro de la tabla
@@ -44,8 +50,14 @@ namespace L3MSuper.Controllers
             }
         }
         [HttpDelete]
-        public string Delete(Control elemento)
+        public string Delete(int cedula, int horas, string sucursal, int semana, int horas_extra)
         {
+            Control elemento = new Control();
+            elemento.Cedula = cedula;
+            elemento.Horas = horas;
+            elemento.Sucursal = sucursal;
+            elemento.Semana = semana;
+            elemento.Horas_Extra = horas_extra;
 
             if (BD.Control.Any(info => info.Cedula == elemento.Cedula))
             {
@@ -62,12 +74,19 @@ namespace L3MSuper.Controllers
         }
 
         [HttpPut]
-        public string Put(Control elemento, int id)
+        public string Put(int actual ,int cedula, int horas, string sucursal, int semana, int horas_extra)
         {
-            if (BD.Control.Any(info => info.Cedula == id))
+            Control elemento = new Control();
+            elemento.Cedula = cedula;
+            elemento.Horas = horas;
+            elemento.Sucursal = sucursal;
+            elemento.Semana = semana;
+            elemento.Horas_Extra = horas_extra;
+
+            if (BD.Control.Any(info => info.Cedula == actual))
             {
 
-                var wc = BD.Control.First(p => p.Cedula == id);
+                var wc = BD.Control.First(p => p.Cedula == actual);
                 BD.Control.Remove(wc);
                 BD.SaveChanges();
                 if (BD.Control.Any(info => info.Cedula == elemento.Cedula))

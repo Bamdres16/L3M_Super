@@ -27,9 +27,15 @@ namespace L3MSuper.Controllers
         
         }
         [HttpPost]
-        public string Post(Trabajadores elemento)
+        public string Post(int Cedula, string Nombre_Completo, string Fecha_Nacimiento, string Fecha_Ingreso, string Sucursal, int Salario)
         {
-
+            Trabajadores elemento = new Trabajadores();
+            elemento.Cedula = Cedula;
+            elemento.Nombre_Completo = Nombre_Completo;
+            elemento.Fecha_de_Nacimiento = Convert.ToDateTime(Fecha_Nacimiento);
+            elemento.Fecha_de_Ingreso = Convert.ToDateTime(Fecha_Ingreso);
+            elemento.Sucursal = Sucursal;
+            elemento.Salario_por_hora = Salario;
             // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
             // valor ya existe dentro de la tabla
             if (BD.Trabajadores.Any(info => info.Cedula == elemento.Cedula))
@@ -47,13 +53,13 @@ namespace L3MSuper.Controllers
 
         }
         [HttpDelete]
-        public string Delete(Trabajadores elemento)
+        public string Delete(int Cedula)
         {
 
-            if (BD.Trabajadores.Any(info => info.Cedula == elemento.Cedula))
+            if (BD.Trabajadores.Any(info => info.Cedula == Cedula))
             {
 
-                var wc = BD.Trabajadores.First(p => p.Cedula == elemento.Cedula);
+                var wc = BD.Trabajadores.First(p => p.Cedula == Cedula);
                 BD.Trabajadores.Remove(wc);
                 BD.SaveChanges();
                 return "Trabajador eliminado";
@@ -64,12 +70,18 @@ namespace L3MSuper.Controllers
             }
         }
         [HttpPut]
-        public string Put(Trabajadores elemento, int cedula)
+        public string Put(int Cedula, string Nombre_Completo, string Fecha_Nacimiento, string Fecha_Ingreso, string Sucursal, int Salario, int actual)
         {
-            if (BD.Trabajadores.Any(info => info.Cedula == cedula))
+            if (BD.Trabajadores.Any(info => info.Cedula == actual))
             {
-
-                var wc = BD.Trabajadores.First(p => p.Cedula == cedula);
+                Trabajadores elemento = new Trabajadores();
+                elemento.Cedula = Cedula;
+                elemento.Nombre_Completo = Nombre_Completo;
+                elemento.Fecha_de_Nacimiento = Convert.ToDateTime(Fecha_Nacimiento);
+                elemento.Fecha_de_Ingreso = Convert.ToDateTime(Fecha_Ingreso);
+                elemento.Sucursal = Sucursal;
+                elemento.Salario_por_hora = Salario;
+                var wc = BD.Trabajadores.First(p => p.Cedula == actual);
                 BD.Trabajadores.Remove(wc);
                 BD.SaveChanges();
                 if (BD.Trabajadores.Any(info => info.Cedula == elemento.Cedula))

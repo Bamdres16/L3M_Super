@@ -70,6 +70,17 @@
     <Property Name="Sucursal" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Salario por hora" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="Id_Venta" />
+    </Key>
+    <Property Name="Cajero" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descuento" Type="int" />
+    <Property Name="Impuesto" Type="int" />
+    <Property Name="Productos" Type="varchar(max)" Nullable="false" />
+    <Property Name="Total" Type="int" Nullable="false" />
+    <Property Name="Id_Venta" Type="int" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="ModeloStoreContainer">
     <EntitySet Name="Compras" EntityType="Self.Compras" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Control" EntityType="Self.Control" Schema="dbo" store:Type="Tables" />
@@ -78,5 +89,6 @@
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

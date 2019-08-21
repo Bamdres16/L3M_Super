@@ -27,9 +27,18 @@ namespace L3MSuper.Controllers
         }
 
         [HttpPost]
-        public string Post(Compras elemento)
+        public string Post(string Descripcion, string Fecha_real, string Fecha_registro, string Proveedor, Byte[] foto, string Sucursal)
         {
-
+            Random random = new Random();
+            int uniqueId = random.Next(0, 10000);
+            Compras elemento = new Compras();
+            elemento.Descripcion = Descripcion;
+            elemento.Fecha_Real = Convert.ToDateTime(Fecha_real);
+            elemento.Fecha_Registro = Convert.ToDateTime(Fecha_registro);
+            elemento.Proveedor = Proveedor;
+            elemento.Foto = foto;
+            elemento.Sucursal = Sucursal;
+            elemento.Id_Compra = uniqueId;
             // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
             // valor ya existe dentro de la tabla
             if (BD.Compras.Any(info => info.Id_Compra == elemento.Id_Compra))
@@ -45,13 +54,13 @@ namespace L3MSuper.Controllers
             }
         }
         [HttpDelete]
-        public string Delete(Compras elemento)
+        public string Delete(int id)
         {
 
-            if (BD.Compras.Any(info => info.Id_Compra == elemento.Id_Compra))
+            if (BD.Compras.Any(info => info.Id_Compra == id))
             {
 
-                var wc = BD.Compras.First(p => p.Id_Compra == elemento.Id_Compra);
+                var wc = BD.Compras.First(p => p.Id_Compra == id);
                 BD.Compras.Remove(wc);
                 BD.SaveChanges();
                 return "Compra eliminada";
@@ -63,12 +72,19 @@ namespace L3MSuper.Controllers
         }
 
         [HttpPut]
-        public string Put(Compras elemento, int id)
+        public string Put(string Descripcion, string Fecha_real, string Fecha_registro, string Proveedor, Byte[] foto, string Sucursal, int actual)
         {
-            if (BD.Compras.Any(info => info.Id_Compra == id))
+            if (BD.Compras.Any(info => info.Id_Compra == actual))
             {
-
-                var wc = BD.Compras.First(p => p.Id_Compra == id);
+                Compras elemento = new Compras();
+                elemento.Descripcion = Descripcion;
+                elemento.Fecha_Real = Convert.ToDateTime(Fecha_real);
+                elemento.Fecha_Registro = Convert.ToDateTime(Fecha_registro);
+                elemento.Proveedor = Proveedor;
+                elemento.Foto = foto;
+                elemento.Sucursal = Sucursal;
+                elemento.Id_Compra = actual;
+                var wc = BD.Compras.First(p => p.Id_Compra == actual);
                 BD.Compras.Remove(wc);
                 BD.SaveChanges();
                 if (BD.Compras.Any(info => info.Id_Compra == elemento.Id_Compra))
