@@ -34,7 +34,7 @@ namespace L3MSuper.Controllers
             elemento.Nombre = Nombre;
             // Valida si existe un elemento dentro de la tabla, debido a que si no genera un error si el
             // valor ya existe dentro de la tabla
-            if (BD.Sucursales.Any(info => info.Nombre == elemento.Nombre))
+            if (BD.Roles.Any(info => info.Nombre == Nombre))
             {
                 return "Ya existe ese rol en la base de datos";
             }
@@ -47,14 +47,14 @@ namespace L3MSuper.Controllers
             }
         }
         [HttpPut]
-        public string Put(string Nombre, string Descripcion, string nombre)
+        public string Put(string Nombre, string Descripcion, string actual)
         {
-            if (BD.Roles.Any(info => info.Nombre == nombre))
+            if (BD.Roles.Any(info => info.Nombre == actual))
             {
                 Roles elemento = new Roles();
                 elemento.Descripcion = Descripcion;
                 elemento.Nombre = Nombre;
-                var wc = BD.Roles.First(p => p.Nombre == nombre);
+                var wc = BD.Roles.First(p => p.Nombre == actual);
                 BD.Roles.Remove(wc);
                 BD.SaveChanges();
                 if (BD.Roles.Any(info => info.Nombre == elemento.Nombre))
